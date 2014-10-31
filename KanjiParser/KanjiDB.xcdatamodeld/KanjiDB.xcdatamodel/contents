@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Character" representedClassName="Character" syncable="YES">
+        <attribute name="id_num" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jlpt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="literal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="meaning" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="reading_kun" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="reading_on" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="reading_pin" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="memberOfDecks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Deck" inverseName="cardsInDeck" inverseEntity="Deck" syncable="YES"/>
+        <relationship name="studyDetails" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StudyDetails" inverseName="character" inverseEntity="StudyDetails" syncable="YES"/>
+    </entity>
+    <entity name="Deck" representedClassName="Deck" syncable="YES">
+        <attribute name="bubbleColour" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numToStudy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="cardsInDeck" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="memberOfDecks" inverseEntity="Character" syncable="YES"/>
+        <relationship name="home" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Home" inverseName="availableDecks" inverseEntity="Home" syncable="YES"/>
+    </entity>
+    <entity name="Home" representedClassName="Home" syncable="YES">
+        <attribute name="numDecks" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="availableDecks" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Deck" inverseName="home" inverseEntity="Deck" syncable="YES"/>
+    </entity>
+    <entity name="StudyDetails" representedClassName="StudyDetails" syncable="YES">
+        <attribute name="eFactor" optional="YES" attributeType="Float" defaultValueString="2.5" syncable="YES"/>
+        <attribute name="interval" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="intervalNum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastStudied" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Character" inverseName="studyDetails" inverseEntity="Character" syncable="YES"/>
+        <relationship name="tempStudyDetails" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TempStudyDetails" inverseName="studyDetails" inverseEntity="TempStudyDetails" syncable="YES"/>
+    </entity>
+    <entity name="TempStudyDetails" representedClassName="TempStudyDetails" syncable="YES">
+        <attribute name="isStudying" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="numCorrect" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numIncorrect" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="studyDetails" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StudyDetails" inverseName="tempStudyDetails" inverseEntity="StudyDetails" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Character" positionX="-864" positionY="72" width="128" height="178"/>
+        <element name="Deck" positionX="-1044" positionY="72" width="128" height="118"/>
+        <element name="StudyDetails" positionX="-675" positionY="72" width="128" height="148"/>
+        <element name="TempStudyDetails" positionX="-668" positionY="252" width="128" height="103"/>
+        <element name="Home" positionX="-1224" positionY="72" width="128" height="73"/>
+    </elements>
+</model>

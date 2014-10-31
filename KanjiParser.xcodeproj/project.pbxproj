@@ -7,34 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		402047DB1A02732300C76B7B /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = 402047DA1A02732300C76B7B /* Home.m */; };
+		402E71B719FC6D6B003E4C86 /* TempStudyDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E71B619FC6D6B003E4C86 /* TempStudyDetails.m */; };
+		4077366B19EA2F1800005537 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 4077366719EA2F1800005537 /* Character.m */; };
+		4077366C19EA2F1800005537 /* StudyDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 4077366919EA2F1800005537 /* StudyDetails.m */; };
 		40BC9E9F19055CD300D6A792 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BC9E9E19055CD300D6A792 /* CoreData.framework */; };
 		40BC9EA119055CD300D6A792 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BC9EA019055CD300D6A792 /* Foundation.framework */; };
 		40BC9EA419055CD300D6A792 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BC9EA319055CD300D6A792 /* main.m */; };
-		40BC9EA919055CD300D6A792 /* KanjiParser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40BC9EA719055CD300D6A792 /* KanjiParser.xcdatamodeld */; };
 		40BC9EAB19055CD300D6A792 /* KanjiParser.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BC9EAA19055CD300D6A792 /* KanjiParser.1 */; };
+		40BC9EBC1905630100D6A792 /* Chars.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BC9EBA1905625E00D6A792 /* Chars.json */; };
+		40D5ADC019F8029B00D20236 /* KanjiDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40D5ADBE19F8029B00D20236 /* KanjiDB.xcdatamodeld */; };
+		40E910201A026A3A00ABD58F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E9101F1A026A3A00ABD58F /* Deck.m */; };
+		40E9BDFD19284DF400EAFB2D /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E9BDFB19284DF400EAFB2D /* TBXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		40E9BDFF19284E3F00EAFB2D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E9BDFE19284E3F00EAFB2D /* libz.dylib */; };
+		40E9BE03192853F700EAFB2D /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E9BE02192853F700EAFB2D /* XMLParser.m */; };
+		40E9BE0A19289C3000EAFB2D /* kanjidic2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E9BE0719289AD200EAFB2D /* kanjidic2.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		40BC9E9919055CD300D6A792 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = usr/share/man/man1;
+			dstSubfolderSpec = 7;
 			files = (
 				40BC9EAB19055CD300D6A792 /* KanjiParser.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		40BC9EBB190562ED00D6A792 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				40E9BE0A19289C3000EAFB2D /* kanjidic2.xml in CopyFiles */,
+				40BC9EBC1905630100D6A792 /* Chars.json in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		402047D91A02732300C76B7B /* Home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Home.h; path = kanjiparser/Home.h; sourceTree = SOURCE_ROOT; };
+		402047DA1A02732300C76B7B /* Home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Home.m; path = kanjiparser/Home.m; sourceTree = SOURCE_ROOT; };
+		402E71B519FC6D6B003E4C86 /* TempStudyDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TempStudyDetails.h; path = kanjiparser/TempStudyDetails.h; sourceTree = SOURCE_ROOT; };
+		402E71B619FC6D6B003E4C86 /* TempStudyDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TempStudyDetails.m; path = kanjiparser/TempStudyDetails.m; sourceTree = SOURCE_ROOT; };
+		4077366619EA2F1800005537 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Character.h; path = kanjiparser/Character.h; sourceTree = SOURCE_ROOT; };
+		4077366719EA2F1800005537 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Character.m; path = kanjiparser/Character.m; sourceTree = SOURCE_ROOT; };
+		4077366819EA2F1800005537 /* StudyDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudyDetails.h; path = kanjiparser/StudyDetails.h; sourceTree = SOURCE_ROOT; };
+		4077366919EA2F1800005537 /* StudyDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudyDetails.m; path = kanjiparser/StudyDetails.m; sourceTree = SOURCE_ROOT; };
 		40BC9E9B19055CD300D6A792 /* KanjiParser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KanjiParser; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BC9E9E19055CD300D6A792 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		40BC9EA019055CD300D6A792 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		40BC9EA319055CD300D6A792 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		40BC9EA619055CD300D6A792 /* KanjiParser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KanjiParser-Prefix.pch"; sourceTree = "<group>"; };
-		40BC9EA819055CD300D6A792 /* KanjiParser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KanjiParser.xcdatamodel; sourceTree = "<group>"; };
 		40BC9EAA19055CD300D6A792 /* KanjiParser.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KanjiParser.1; sourceTree = "<group>"; };
+		40BC9EBA1905625E00D6A792 /* Chars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Chars.json; path = ../Chars.json; sourceTree = "<group>"; };
+		40D5ADBF19F8029B00D20236 /* KanjiDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KanjiDB.xcdatamodel; sourceTree = "<group>"; };
+		40E9101E1A026A3A00ABD58F /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = kanjiparser/Deck.h; sourceTree = SOURCE_ROOT; };
+		40E9101F1A026A3A00ABD58F /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = kanjiparser/Deck.m; sourceTree = SOURCE_ROOT; };
+		40E9BDFB19284DF400EAFB2D /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		40E9BDFC19284DF400EAFB2D /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		40E9BDFE19284E3F00EAFB2D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		40E9BE01192853F700EAFB2D /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLParser.h; path = KanjiParser/XMLParser.h; sourceTree = "<group>"; };
+		40E9BE02192853F700EAFB2D /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLParser.m; path = KanjiParser/XMLParser.m; sourceTree = "<group>"; };
+		40E9BE0719289AD200EAFB2D /* kanjidic2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = kanjidic2.xml; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E9BDFF19284E3F00EAFB2D /* libz.dylib in Frameworks */,
 				40BC9E9F19055CD300D6A792 /* CoreData.framework in Frameworks */,
 				40BC9EA119055CD300D6A792 /* Foundation.framework in Frameworks */,
 			);
@@ -53,6 +92,7 @@
 		40BC9E9219055CD300D6A792 = {
 			isa = PBXGroup;
 			children = (
+				40E9BDFA19284DBF00EAFB2D /* TBXML */,
 				40BC9EA219055CD300D6A792 /* KanjiParser */,
 				40BC9E9D19055CD300D6A792 /* Frameworks */,
 				40BC9E9C19055CD300D6A792 /* Products */,
@@ -70,6 +110,7 @@
 		40BC9E9D19055CD300D6A792 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40E9BDFE19284E3F00EAFB2D /* libz.dylib */,
 				40BC9E9E19055CD300D6A792 /* CoreData.framework */,
 				40BC9EA019055CD300D6A792 /* Foundation.framework */,
 			);
@@ -79,9 +120,21 @@
 		40BC9EA219055CD300D6A792 /* KanjiParser */ = {
 			isa = PBXGroup;
 			children = (
+				402047D91A02732300C76B7B /* Home.h */,
+				402047DA1A02732300C76B7B /* Home.m */,
+				40E9101E1A026A3A00ABD58F /* Deck.h */,
+				40E9101F1A026A3A00ABD58F /* Deck.m */,
+				4077366619EA2F1800005537 /* Character.h */,
+				4077366719EA2F1800005537 /* Character.m */,
+				4077366819EA2F1800005537 /* StudyDetails.h */,
+				4077366919EA2F1800005537 /* StudyDetails.m */,
+				402E71B519FC6D6B003E4C86 /* TempStudyDetails.h */,
+				402E71B619FC6D6B003E4C86 /* TempStudyDetails.m */,
+				40E9BE0719289AD200EAFB2D /* kanjidic2.xml */,
+				40BC9EBA1905625E00D6A792 /* Chars.json */,
+				40D5ADBE19F8029B00D20236 /* KanjiDB.xcdatamodeld */,
 				40BC9EA319055CD300D6A792 /* main.m */,
 				40BC9EAA19055CD300D6A792 /* KanjiParser.1 */,
-				40BC9EA719055CD300D6A792 /* KanjiParser.xcdatamodeld */,
 				40BC9EA519055CD300D6A792 /* Supporting Files */,
 			);
 			path = KanjiParser;
@@ -95,6 +148,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		40E9BDFA19284DBF00EAFB2D /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				40E9BDFB19284DF400EAFB2D /* TBXML.m */,
+				40E9BDFC19284DF400EAFB2D /* TBXML.h */,
+				40E9BE01192853F700EAFB2D /* XMLParser.h */,
+				40E9BE02192853F700EAFB2D /* XMLParser.m */,
+			);
+			name = TBXML;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,6 +169,7 @@
 				40BC9E9719055CD300D6A792 /* Sources */,
 				40BC9E9819055CD300D6A792 /* Frameworks */,
 				40BC9E9919055CD300D6A792 /* CopyFiles */,
+				40BC9EBB190562ED00D6A792 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -146,8 +211,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40BC9EA919055CD300D6A792 /* KanjiParser.xcdatamodeld in Sources */,
+				40E910201A026A3A00ABD58F /* Deck.m in Sources */,
 				40BC9EA419055CD300D6A792 /* main.m in Sources */,
+				4077366B19EA2F1800005537 /* Character.m in Sources */,
+				40E9BDFD19284DF400EAFB2D /* TBXML.m in Sources */,
+				4077366C19EA2F1800005537 /* StudyDetails.m in Sources */,
+				40E9BE03192853F700EAFB2D /* XMLParser.m in Sources */,
+				402E71B719FC6D6B003E4C86 /* TempStudyDetails.m in Sources */,
+				40D5ADC019F8029B00D20236 /* KanjiDB.xcdatamodeld in Sources */,
+				402047DB1A02732300C76B7B /* Home.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,17 +333,18 @@
 				40BC9EB019055CD300D6A792 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		40BC9EA719055CD300D6A792 /* KanjiParser.xcdatamodeld */ = {
+		40D5ADBE19F8029B00D20236 /* KanjiDB.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				40BC9EA819055CD300D6A792 /* KanjiParser.xcdatamodel */,
+				40D5ADBF19F8029B00D20236 /* KanjiDB.xcdatamodel */,
 			);
-			currentVersion = 40BC9EA819055CD300D6A792 /* KanjiParser.xcdatamodel */;
-			path = KanjiParser.xcdatamodeld;
+			currentVersion = 40D5ADBF19F8029B00D20236 /* KanjiDB.xcdatamodel */;
+			path = KanjiDB.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
