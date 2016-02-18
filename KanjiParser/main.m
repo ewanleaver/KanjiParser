@@ -150,35 +150,172 @@ void createDecks() {
                   insertNewObjectForEntityForName:@"Home"
                   inManagedObjectContext:context];
     
+    NSFetchRequest *fetchRequest;
+    NSEntityDescription *entity;
+    
+    NSMutableSet *cardsInDeck = [[NSMutableSet alloc] init];
+    NSMutableArray *results;
+    
+    NSError *error;
+    Character *ch;
+    
+    NSDictionary *bubbleColour;
+    NSData *bubbleColourData;
+    
+    //
+    // Build test deck
+    //
+    Deck *testDeck = [NSEntityDescription
+                    insertNewObjectForEntityForName:@"Deck"
+                    inManagedObjectContext:context];
+    
+    testDeck.name = @"Review";
+    
+    bubbleColour = @{
+                                   @"r" : @65,
+                                   @"g" : @142,
+                                   @"b" : @255,
+                                   };
+    
+    bubbleColourData = [NSKeyedArchiver archivedDataWithRootObject:bubbleColour];
+    testDeck.bubbleColour = bubbleColourData;
+    
+    int i = 1000;
+    while (i < 1020) {
+        fetchRequest = [[NSFetchRequest alloc] init];
+        entity = [NSEntityDescription
+                  entityForName:@"Character" inManagedObjectContext:context];
+        
+        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id_num == %@", [NSString stringWithFormat:@"%d",i]]];
+        [fetchRequest setEntity:entity];
+        
+        results = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:&error]];
+        
+        //NSLog(@"%lu cards found",(unsigned long)[results count]);
+        for (int k=0; k<[results count]; k++) {
+            ch = [results objectAtIndex:k];
+            
+            [cardsInDeck addObject:ch];
+        }
+        
+        i++;
+    }
+    
+    testDeck.cardsInDeck = cardsInDeck;
+    testDeck.numToStudy = [NSNumber numberWithLong:[cardsInDeck count]];
+    
+    [home addAvailableDecksObject:testDeck];
+   
+    //
+    // Build deck for N3
+    //
+    Deck *jlptN4 = [NSEntityDescription
+                    insertNewObjectForEntityForName:@"Deck"
+                    inManagedObjectContext:context];
+    
+    jlptN4.name = @"JLPT N4";
+    
+    bubbleColour = @{
+                     @"r" : @200,
+                     @"g" : @140,
+                     @"b" : @255,
+                     };
+    
+    bubbleColourData = [NSKeyedArchiver archivedDataWithRootObject:bubbleColour];
+    jlptN4.bubbleColour = bubbleColourData;
+    
+    // Create and execute fetch request for all cards at N3 level
+    fetchRequest = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription
+              entityForName:@"Character" inManagedObjectContext:context];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"jlpt == %@", @"4"]];
+    [fetchRequest setEntity:entity];
+    
+    results = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:&error]];
+    
+    cardsInDeck = [[NSMutableSet alloc] init];
+    NSLog(@"%lu cards found",(unsigned long)[results count]);
+    for (int k=0; k<[results count]; k++) {
+        ch = [results objectAtIndex:k];
+        
+        [cardsInDeck addObject:ch];
+        //[deckArray addObject:[NSNumber numberWithInt:ch.id_num.intValue]];
+    }
+    jlptN4.cardsInDeck = cardsInDeck;
+    jlptN4.numToStudy = [NSNumber numberWithLong:[cardsInDeck count]];
+    
+    [home addAvailableDecksObject:jlptN4];
+    
+    //
+    // Build deck for N3
+    //
+    Deck *jlptN3 = [NSEntityDescription
+                    insertNewObjectForEntityForName:@"Deck"
+                    inManagedObjectContext:context];
+    
+    jlptN3.name = @"JLPT N3";
+    
+    bubbleColour = @{
+       @"r" : @100,
+       @"g" : @240,
+       @"b" : @120,
+    };
+    
+    bubbleColourData = [NSKeyedArchiver archivedDataWithRootObject:bubbleColour];
+    jlptN3.bubbleColour = bubbleColourData;
+    
+    // Create and execute fetch request for all cards at N3 level
+    fetchRequest = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription
+                                   entityForName:@"Character" inManagedObjectContext:context];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"jlpt == %@", @"3"]];
+    [fetchRequest setEntity:entity];
+    
+    results = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:&error]];
+    
+    cardsInDeck = [[NSMutableSet alloc] init];
+    NSLog(@"%lu cards found",(unsigned long)[results count]);
+    for (int k=0; k<[results count]; k++) {
+        ch = [results objectAtIndex:k];
+        
+        [cardsInDeck addObject:ch];
+        //[deckArray addObject:[NSNumber numberWithInt:ch.id_num.intValue]];
+    }
+    jlptN3.cardsInDeck = cardsInDeck;
+    jlptN3.numToStudy = [NSNumber numberWithLong:[cardsInDeck count]];
+    
+    [home addAvailableDecksObject:jlptN3];
+    
+    
+    //
     // Build deck for JLPT N2
+    //
     Deck *jlptN2 = [NSEntityDescription
                     insertNewObjectForEntityForName:@"Deck"
                     inManagedObjectContext:context];
     
     jlptN2.name = @"JLPT N2";
 
-    NSDictionary *bubbleColour = @{
+    bubbleColour = @{
        @"r" : @255,
        @"g" : @139,
        @"b" : @88,
     };
     
-    NSData *bubbleColourData;
     bubbleColourData = [NSKeyedArchiver archivedDataWithRootObject:bubbleColour];
     jlptN2.bubbleColour = bubbleColourData;
     
     // Create and execute fetch request for all cards at N2 level
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
+    fetchRequest = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription
                                    entityForName:@"Character" inManagedObjectContext:context];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"jlpt == %@", @"2"]];
     [fetchRequest setEntity:entity];
     
-    NSError *error;
-    NSMutableArray *results = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:&error]];
+    error = nil;
+    results = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:&error]];
     
-    Character *ch;
-    NSMutableSet *cardsInDeck = [[NSMutableSet alloc] init];
+    cardsInDeck = [[NSMutableSet alloc] init];
     NSLog(@"%lu cards found",(unsigned long)[results count]);
     for (int k=0; k<[results count]; k++) {
         ch = [results objectAtIndex:k];
@@ -191,7 +328,51 @@ void createDecks() {
     
     // Add deck to home object
     [home addAvailableDecksObject:jlptN2];
-    NSLog(@"Should be okay..");
+    
+    
+    //
+    // Build deck for N1
+    //
+    Deck *jlptN1 = [NSEntityDescription
+                    insertNewObjectForEntityForName:@"Deck"
+                    inManagedObjectContext:context];
+    
+    jlptN1.name = @"JLPT N1";
+    
+    bubbleColour = @{
+                     @"r" : @255,
+                     @"g" : @83,
+                     @"b" : @91,
+                     };
+    
+    bubbleColourData = [NSKeyedArchiver archivedDataWithRootObject:bubbleColour];
+    jlptN1.bubbleColour = bubbleColourData;
+    
+    // Create and execute fetch request for all cards at N3 level
+    fetchRequest = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription
+              entityForName:@"Character" inManagedObjectContext:context];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"jlpt == %@", @"1"]];
+    [fetchRequest setEntity:entity];
+    
+    results = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:&error]];
+    
+    cardsInDeck = [[NSMutableSet alloc] init];
+    NSLog(@"%lu cards found",(unsigned long)[results count]);
+    for (int k=0; k<[results count]; k++) {
+        ch = [results objectAtIndex:k];
+        
+        [cardsInDeck addObject:ch];
+        //[deckArray addObject:[NSNumber numberWithInt:ch.id_num.intValue]];
+    }
+    jlptN1.cardsInDeck = cardsInDeck;
+    jlptN1.numToStudy = [NSNumber numberWithLong:[cardsInDeck count]];
+    
+    [home addAvailableDecksObject:jlptN1];
+    
+    
+    
+    NSLog(@"Decks objects added.");
     
 //    NSSet *inserts = [context insertedObjects];
 //    
